@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+
 @Service
 public class ProductService {
     @Autowired
@@ -16,4 +18,16 @@ public class ProductService {
         return repository.fetchProductInfo();
     }
 
+
+    public Product getProduct(String id) throws Exception {
+        return repository.getProductDetailsById(id);
+    }
+
+    public List<Product> addProduct(List<Product> product) {
+         return repository.saveProducts(product);
+    }
+
+    public void removeProduct(List<Product> products) {
+        repository.deleteProducts(products);
+    }
 }
